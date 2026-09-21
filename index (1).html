@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evil Traderz - Monthly Chit Plans</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-dark: #002541;
+      --primary-gold: #ffc55f;
+      --secondary-orange: #7d5700;
+      --light-bg: #e5effd;
+      --text-dark: #002541;
+      --text-gray: #42474e;
+      --border-light: #f0f0f0;
+      --shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: white;
+    }
+
+    /* ==================== HEADER ==================== */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border-light);
+      padding: 20px 48px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 20px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-dark);
+      border-radius: 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+      flex: 1;
+    }
+
+    nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-gold);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .lang-toggle {
+      padding: 8px 12px;
+      background: var(--border-light);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .cta-button {
+      padding: 10px 24px;
+      background: var(--primary-dark);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #001a2e;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 24px;
+      }
+
+      header .container {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .header-actions {
+        width: 100%;
+      }
+    }
+
+    /* ==================== SECTIONS ==================== */
+    .section {
+      padding: 60px 48px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Epilogue', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 16px 0 20px 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-family: 'Epilogue', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 12px 0 16px 0;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 12px 0 8px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.1px;
+      color: var(--secondary-orange);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      color: var(--text-gray);
+      font-size: 17px;
+      margin-top: 8px;
+    }
+
+    /* ==================== HERO SECTION ==================== */
+    .hero {
+      padding: 80px 48px;
+      background: white;
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-left h1 {
+      font-size: 48px;
+      margin: 20px 0;
+    }
+
+    .hero-left p {
+      font-size: 17px;
+      color: var(--text-gray);
+      margin: 20px 0;
+      line-height: 1.8;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary-dark);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #001a2e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 37, 65, 0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-dark);
+      border: 1px solid var(--text-dark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--text-dark);
+      color: white;
+    }
+
+    .trust-marks {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-gray);
+    }
+
+    .trust-icon {
+      width: 16px;
+      height: 16px;
+      background: var(--primary-gold);
+      border-radius: 50%;
+    }
+
+    .hero-right {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 400px;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-gray);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left h1 {
+        font-size: 32px;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .trust-marks {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+
+    /* ==================== SECTION 2: CHIT INTRO ==================== */
+    .section-intro {
+      background: #f9f9f9;
+    }
+
+    .section-intro .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .intro-left h2 {
+      margin: 20px 0;
+    }
+
+    .intro-left > p {
+      margin: 16px 0;
+      line-height: 1.8;
+    }
+
+    .quote-block {
+      margin: 24px 0;
+      padding: 24px;
+      border-left: 6px solid var(--primary-gold);
+      background: white;
+      color: var(--text-gray);
+      font-style: italic;
+      border-radius: 4px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .process-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .process-card .number {
+      width: 32px;
+      height: 32px;
+      background: var(--primary-dark);
+      color: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .process-card h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .section-intro .container {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==================== SECTION 3: PLANS ==================== */
+    .plans-section {
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-header h2 {
+      margin: 16px 0;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .plan-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .plan-badge {
+      display: inline-block;
+      background: var(--border-light);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .plan-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 12px 0;
+    }
+
+    .plan-subtitle {
+      font-size: 13px;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+    }
+
+    .plan-price {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 16px 0 8px 0;
+    }
+
+    .plan-price-label {
+      font-size: 13px;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+    }
+
+    .plan-features {
+      background: var(--border-light);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .plan-cta {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-dark);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .plan-cta:hover {
+      background: #001a2e;
+    }
+
+    .popular-badge {
+      position: relative;
+      margin-top: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--primary-gold), #ffb347);
+      color: var(--secondary-orange);
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .assistance-bar {
+      background: var(--light-bg);
+      padding: 24px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    .assistance-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+    }
+
+    .assistance-content h4 {
+      margin: 0;
+      color: var(--text-dark);
+    }
+
+    .assistance-content p {
+      margin: 4px 0 0 0;
+      font-size: 13px;
+      color: var(--text-gray);
+    }
+
+    .assistance-link {
+      padding: 10px 24px;
+      background: var(--primary-dark);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1024px) {
+      .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .plans-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .assistance-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* ==================== SECTION 4: HOW IT WORKS ==================== */
+    .how-it-works {
+      background: var(--light-bg);
+    }
+
+    .timeline-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .timeline-card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+    }
+
+    .timeline-number {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-dark);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .timeline-number.last {
+      background: var(--primary-gold);
+      color: var(--secondary-orange);
+    }
+
+    .timeline-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--border-light);
+      border-radius: 4px;
+    }
+
+    .timeline-card h3 {
+      margin: 0;
+    }
+
+    .timeline-card p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-gray);
+      margin: 0;
+    }
+
+    .highlight-banner {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .highlight-banner .section-label {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .highlight-banner h3 {
+      margin: 8px 0 20px 0;
+      font-size: 22px;
+    }
+
+    .highlight-banner .quote-text {
+      font-style: italic;
+      color: var(--text-gray);
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    @media (max-width: 1024px) {
+      .timeline-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timeline-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==================== SECTION 5: BENEFITS ==================== */
+    .benefits-section {
+      background: white;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--light-bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .benefit-card p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-gray);
+    }
+
+    @media (max-width: 1024px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==================== SECTION 6: WHY CHOOSE US ==================== */
+    .why-us {
+      background: #f9f9f9;
+    }
+
+    .why-us .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .why-us-image {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 32px;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-us-image::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--primary-gold), transparent);
+      opacity: 0.1;
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .why-us-image::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--primary-dark), transparent);
+      opacity: 0.05;
+      border-radius: 50%;
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .image-overlay {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      gap: 12px;
+    }
+
+    .overlay-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--primary-dark);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .overlay-text h4 {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .overlay-text p {
+      margin: 4px 0 0 0;
+      font-size: 12px;
+      color: var(--text-gray);
+    }
+
+    .why-us-right h2 {
+      margin-top: 0;
+    }
+
+    .trust-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .trust-card {
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .trust-card-header {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .trust-card-icon {
+      width: 16px;
+      height: 16px;
+      background: var(--primary-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .trust-card-title {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 14px;
+    }
+
+    .trust-card-desc {
+      font-size: 12px;
+      color: var(--text-gray);
+      line-height: 1.6;
+      margin-left: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .why-us .container {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==================== SECTION 7: FINAL CTA ==================== */
+    .final-cta {
+      background: var(--primary-dark);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--primary-gold), transparent);
+      opacity: 0.05;
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .final-cta::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, white, transparent);
+      opacity: 0.03;
+      border-radius: 50%;
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .cta-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      color: white;
+      margin: 16px 0;
+    }
+
+    .cta-content p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 15px;
+      margin: 12px 0;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--primary-dark);
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-white:hover {
+      background: var(--primary-gold);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn-white {
+        width: 100%;
+      }
+    }
+
+    /* ==================== SECTION 8: CONTACT FORM ==================== */
+    .contact-section {
+      background: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 48px;
+      margin-top: 32px;
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-info h4 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .contact-info p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    .contact-info a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      color: var(--primary-gold);
+    }
+
+    .form-card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-card h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .form-card > p {
+      margin: 8px 0 24px 0;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input::placeholder,
+    .form-group select::placeholder {
+      color: #999;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-dark);
+      box-shadow: 0 0 0 3px rgba(0, 37, 65, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary-dark);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .form-submit:hover {
+      background: #001a2e;
+    }
+
+    .form-submit:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .form-success {
+      padding: 12px;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: none;
+      font-size: 13px;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .form-error {
+      padding: 12px;
+      background: #f8d7da;
+      color: #721c24;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: none;
+      font-size: 13px;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      color: var(--text-gray);
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .disclaimer-icon {
+      width: 16px;
+      height: 16px;
+      background: var(--primary-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        padding: 24px;
+      }
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 40px 48px;
+    }
+
+    footer .container {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-icon {
+      width: 32px;
+      height: 32px;
+      background: white;
+      border-radius: 4px;
+    }
+
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .footer-section h4 {
+      margin: 0 0 16px 0;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-gold);
+    }
+
+    .footer-info {
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 16px;
+    }
+
+    .footer-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--primary-gold);
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 32px 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container" style="max-width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 32px;">
+    <div class="logo-section">
+      <div class="logo-icon"></div>
+      <span>Evil Traderz</span>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#plans">Plans</a>
+      <a href="#howitworks">How It Works</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-toggle">EN / TA</button>
+      <button class="cta-button">Get Started</button>
+      <div style="width: 32px; height: 32px; background: var(--border-light); border-radius: 4px;"></div>
+    </div>
+  </div>
+</header>
+
+<!-- SECTION 1: HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-left">
+      <div style="display: inline-block; background: var(--border-light); padding: 8px 12px; border-radius: 6px; font-size: 11px; color: var(--secondary-orange); font-weight: 600; margin-bottom: 12px;">🏆 TRUSTED BY THOUSANDS</div>
+      <h1>Transform Your Savings Into Dreams</h1>
+      <p>Join thousands of families building wealth through disciplined monthly contributions. Choose a plan, pay monthly, and receive your promised item when complete.</p>
+      <div class="button-group">
+        <button class="btn btn-primary">Explore Plans →</button>
+        <button class="btn btn-secondary">Learn More</button>
+      </div>
+      <div class="trust-marks">
+        <div class="trust-item"><div class="trust-icon"></div> Transparent & Fair</div>
+        <div class="trust-item"><div class="trust-icon"></div> Government Compliant</div>
+        <div class="trust-item"><div class="trust-icon"></div> Local Support</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p style="font-size: 48px;">📦</p>
+      <p>Product showcase area</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CHIT INTRO -->
+<section class="section-intro">
+  <div class="container">
+    <div class="intro-left">
+      <div class="section-label">WHAT IS A CHIT?</div>
+      <h2>How Monthly Chits Work</h2>
+      <p>A chit is a time-honored savings and credit scheme where members contribute a fixed amount monthly. One member receives the pool amount at agreed intervals until everyone gets their turn.</p>
+      <p>It combines discipline with benefit—you commit to regular payments while ensuring you receive your target item within a defined timeframe.</p>
+      <div class="quote-block">"Pay a little each month. Stay committed to your plan. Get the item you've planned for."</div>
+    </div>
+    <div>
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="number">1</div>
+          <h4>CHOOSE</h4>
+          <p>Pick the scheme matching your target monthly budget and item.</p>
+        </div>
+        <div class="process-card">
+          <div class="number">2</div>
+          <h4>PAY MONTHLY</h4>
+          <p>Convenient local payment collection, UPI, or branch walk-in.</p>
+        </div>
+        <div class="process-card">
+          <div class="number">3</div>
+          <h4>COMPLETE PLAN</h4>
+          <p>Remain consistent across your monthly contributions until full term.</p>
+        </div>
+        <div class="process-card">
+          <div class="number">4</div>
+          <h4>RECEIVE ITEM</h4>
+          <p>Claim your guaranteed promised household product or asset with invoice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: PLANS -->
+<section class="section plans-section" id="plans">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">FLEXIBLE OPTIONS</div>
+      <h2>Choose the Plan That Suits You</h2>
+      <p class="section-subtitle">Select from our variety of monthly chit plans tailored to different budgets and goals. Each plan guarantees transparency and fair returns.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-badge">STARTER</div>
+        <div class="plan-title">Starter Home</div>
+        <div class="plan-subtitle">Basic home essentials plan</div>
+        <div class="plan-price">₹5,000</div>
+        <div class="plan-price-label">Monthly contribution</div>
+        <div class="plan-features">
+          <strong>Plan Duration:</strong> 24 months<br>
+          <strong>Target Item:</strong> Home appliances<br>
+          <strong>Total Value:</strong> ₹1,20,000
+        </div>
+        <button class="plan-cta">Join This Plan</button>
+      </div>
+      <div class="plan-card" style="border: 2px solid var(--primary-gold);">
+        <div class="plan-badge" style="background: var(--primary-gold); color: var(--secondary-orange);">POPULAR</div>
+        <div class="plan-title">Family Comfort</div>
+        <div class="plan-subtitle">Most chosen plan</div>
+        <div class="plan-price">₹10,000</div>
+        <div class="plan-price-label">Monthly contribution</div>
+        <div class="plan-features">
+          <strong>Plan Duration:</strong> 24 months<br>
+          <strong>Target Item:</strong> Premium appliances<br>
+          <strong>Total Value:</strong> ₹2,40,000
+        </div>
+        <button class="plan-cta">Join This Plan</button>
+        <div class="popular-badge">⭐ MOST POPULAR</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-badge">FESTIVAL</div>
+        <div class="plan-title">Festival Special</div>
+        <div class="plan-subtitle">Seasonal flexibility plan</div>
+        <div class="plan-price">₹7,500</div>
+        <div class="plan-price-label">Monthly contribution</div>
+        <div class="plan-features">
+          <strong>Plan Duration:</strong> 18 months<br>
+          <strong>Target Item:</strong> Chosen appliance<br>
+          <strong>Total Value:</strong> ₹1,35,000
+        </div>
+        <button class="plan-cta">Join This Plan</button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-badge">PREMIUM</div>
+        <div class="plan-title">Premium Living</div>
+        <div class="plan-subtitle">High-value lifestyle plan</div>
+        <div class="plan-price">₹15,000</div>
+        <div class="plan-price-label">Monthly contribution</div>
+        <div class="plan-features">
+          <strong>Plan Duration:</strong> 24 months<br>
+          <strong>Target Item:</strong> Premium appliances<br>
+          <strong>Total Value:</strong> ₹3,60,000
+        </div>
+        <button class="plan-cta">Join This Plan</button>
+      </div>
+    </div>
+    <div class="assistance-bar">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="assistance-icon">❓</div>
+        <div class="assistance-content">
+          <h4>Still unsure which plan to choose?</h4>
+          <p>Talk to our branch representative for personalized guidance on plan selection.</p>
+        </div>
+      </div>
+      <button class="assistance-link">Get Assistance</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: HOW IT WORKS -->
+<section class="section how-it-works" id="howitworks">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">A CLEAR PATH</div>
+      <h2>It's Simple From Start to Finish</h2>
+      <p class="section-subtitle">A straightforward process from choosing your plan to receiving your item.</p>
+    </div>
+    <div class="timeline-container">
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-number">01</div>
+          <div class="timeline-icon"></div>
+        </div>
+        <h3>Choose Your Plan</h3>
+        <p>Look through the available plans and select the one that matches your budget and requirement.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-number">02</div>
+          <div class="timeline-icon"></div>
+        </div>
+        <h3>Start Payments</h3>
+        <p>Once you join, make the agreed payment every month throughout the selected plan period.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-number">03</div>
+          <div class="timeline-icon"></div>
+        </div>
+        <h3>Stay Consistent</h3>
+        <p>Continue your monthly payments until the agreed duration is smoothly and successfully completed.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-number last">04</div>
+          <div class="timeline-icon"></div>
+        </div>
+        <h3>Receive Your Item</h3>
+        <p>Once you complete the plan as agreed, receive the specified item associated with your chosen plan.</p>
+      </div>
+    </div>
+    <div class="highlight-banner">
+      <div class="section-label">PURPOSEFUL DISCIPLINE</div>
+      <h3>Your Monthly Payment Has a Purpose</h3>
+      <p class="quote-text">"Pay a little each month. Stay committed to your plan. Get the item you've planned for."</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: BENEFITS -->
+<section class="section benefits-section" id="benefits">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">KEY ADVANTAGES</div>
+      <h2>Why Choose a Monthly Chit Plan?</h2>
+      <p class="section-subtitle">Discover the unique benefits that make monthly chit plans the smart choice for disciplined savings.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <h3>Flexible Budget</h3>
+        <p>Choose from multiple monthly contribution amounts starting from ₹5,000 onwards to match your income and lifestyle.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h3>Guaranteed Returns</h3>
+        <p>Receive your promised item and monetary returns when your plan completes, with transparent schedules upfront.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🛡️</div>
+        <h3>Risk-Free Scheme</h3>
+        <p>Backed by trust and regulation. Your contributions and promised returns are protected under legal agreements.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📱</div>
+        <h3>Easy Payment Options</h3>
+        <p>Pay via local collection, digital wallets, UPI, or visit our branch. Multiple convenient options for you.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">👥</div>
+        <h3>Community Support</h3>
+        <p>Join a network of like-minded families building wealth together. Share experiences and stay motivated.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⏰</div>
+        <h3>Time-Bound Planning</h3>
+        <p>Fixed tenure plans ensure you receive your target item within a set timeframe—perfect for planned purchases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: WHY CHOOSE US -->
+<section class="section why-us">
+  <div class="container">
+    <div class="why-us-image">
+      <div class="image-overlay">
+        <div class="overlay-icon"></div>
+        <div class="overlay-text">
+          <h4>Expert Guidance</h4>
+          <p>Our team ensures smooth execution</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-us-right">
+      <div class="section-label">BUILD TRUST</div>
+      <h2>Why Choose Evil Traderz?</h2>
+      <p>With years of experience managing chit schemes, we've perfected the art of transparent, fair, and rewarding monthly plans. Our commitment is your financial growth.</p>
+      <p>Every scheme is designed with your success in mind—from flexible contribution options to guaranteed returns, we're here to make your dreams achievable.</p>
+      <div class="trust-list">
+        <div class="trust-card">
+          <div class="trust-card-header">
+            <div class="trust-card-icon"></div>
+            <div class="trust-card-title">Flexible Plans</div>
+          </div>
+          <div class="trust-card-desc">Choose from different plans according to your budget.</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-header">
+            <div class="trust-card-icon"></div>
+            <div class="trust-card-title">Full Transparency</div>
+          </div>
+          <div class="trust-card-desc">Know contribution, tenure, and item before joining.</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-header">
+            <div class="trust-card-icon"></div>
+            <div class="trust-card-title">Expert Support</div>
+          </div>
+          <div class="trust-card-desc">Our dedicated team is ready to answer all questions.</div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-header">
+            <div class="trust-card-icon"></div>
+            <div class="trust-card-title">Simple Process</div>
+          </div>
+          <div class="trust-card-desc">Choose, pay monthly, complete and receive your item.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: FINAL CTA -->
+<section class="section final-cta">
+  <div class="container">
+    <div class="cta-content">
+      <div class="section-label" style="color: var(--primary-gold);">START TODAY</div>
+      <h2>Ready to Choose Your Plan?</h2>
+      <p>Take the first step toward your financial goals. Join thousands of satisfied members and get started with your perfect chit plan today.</p>
+      <p style="font-size: 14px; margin: 20px 0;">It takes just 5 minutes to enroll and start your journey.</p>
+      <div class="cta-buttons">
+        <button class="btn-white">Explore Plans</button>
+        <button class="btn-white" style="background: transparent; color: white; border: 2px solid white;">Contact Us</button>
+      </div>
+      <p style="font-size: 12px; color: rgba(255, 255, 255, 0.7);">No hidden charges • Transparent pricing • Government compliant</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: CONTACT & FORM -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">GET IN TOUCH</div>
+      <h2>Want to Know More?</h2>
+      <p class="section-subtitle">Have questions about our plans? Send us an enquiry and our branch representative will get back to you with detailed information.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <h4>Call Us</h4>
+            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+            <p>Mon – Sat, 9:00 AM – 7:00 PM</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">💬</div>
+          <div class="contact-info">
+            <h4>WhatsApp Us</h4>
+            <p><a href="https://wa.me/919876543210">+91 98765 43210</a></p>
+            <p>Instant responses & plan brochures</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <h4>Visit Office</h4>
+            <p>Evil Traderz Headquarters<br>Tamil Nadu / Local Office</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Send an Enquiry</h3>
+        <p>Our branch representative will get back to you with complete scheme schedules.</p>
+        <div class="form-success" id="successMsg">✓ Thank you! Your enquiry has been submitted successfully.</div>
+        <div class="form-error" id="errorMsg"></div>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. +91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="submitBtn"></label>
+            <button type="submit" class="form-submit" id="submitBtn">Send Enquiry →</button>
+          </div>
+          <div class="disclaimer">
+            <div class="disclaimer-icon"></div>
+            <span>We respect your privacy and will never share your information with third parties.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-brand-icon"></div>
+          <div>
+            <div class="footer-brand-name">Evil Traderz</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.6);">Monthly Chit Plans</div>
+          </div>
+        </div>
+        <div class="footer-info">
+          We empower families to achieve their financial goals through transparent, disciplined monthly chit plans. Build wealth, one month at a time.</div>
+        <div class="disclaimer" style="margin-top: 16px;">
+          <div class="disclaimer-icon"></div>
+          <span>Regulated and Government-Compliant Service</span>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Navigation</h4>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#plans">Our Plans</a>
+          <a href="#howitworks">How It Works</a>
+          <a href="#benefits">Benefits</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Support</h4>
+        <div class="footer-links">
+          <a href="tel:+919876543210">📞 Call: +91 98765 43210</a>
+          <a href="https://wa.me/919876543210">💬 WhatsApp</a>
+          <a href="mailto:info@eviltraderz.com">📧 Email</a>
+          <a href="#contact">Branch Locations</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; margin-top: 24px;">
+    <div class="footer-bottom">
+      <div>© 2024 Evil Traderz. All rights reserved. Built with trust.</div>
+      <div style="text-align: right;">
+        <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const APPSCRIPT_URL = 'https://script.googleapis.com/macros/s/AKfycbyAcj8XRTO6_2uzZQaqQ2Ry74tBwUP6wzC8ecGgtiBNEepBnscLOz7bUxy8iQAI0z8/exec';
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+    
+    // Hide previous messages
+    successMsg.classList.remove('show');
+    errorMsg.classList.remove('show');
+    
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    
+    // Validate
+    if (!name || !email || !phone) {
+      errorMsg.textContent = '❌ Please fill in all fields (name, email, phone).';
+      errorMsg.classList.add('show');
+      return;
+    }
+    
+    // Disable button during submission
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    
+    // Build URL with URLSearchParams
+    const params = new URLSearchParams({
+      name: name,
+      email: email,
+      phone: phone
+    });
+    
+    const url = APPSCRIPT_URL + '?' + params.toString();
+    
+    // CRITICAL FETCH RULE: Use GET with no-cors, do NOT use .then(res => res.json())
+    fetch(url, {
+      method: 'GET',
+      mode: 'no-cors'
+    }).catch(err => {
+      console.log('Request sent (CORS expected)');
+    });
+    
+    // Show success message and reset form
+    successMsg.classList.add('show');
+    document.getElementById('contactForm').reset();
+    
+    // Reset button
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Enquiry →';
+    }, 3000);
+  }
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
