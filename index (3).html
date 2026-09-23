@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chit Plans - Monthly Savings & Festival Gifts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2d5016;
+            --secondary-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: white;
+        }
+
+        /* ======================== HEADER ======================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 48px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .cta-button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #d97706;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 24px;
+            }
+            nav {
+                display: none;
+            }
+        }
+
+        /* ======================== HERO SECTION ======================== */
+        .hero {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #1f3a0a;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            padding: 14px 32px;
+            border: 2px solid var(--primary-color);
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .hero-image {
+            background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+            border-radius: 12px;
+            padding: 40px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero-image-content {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .hero-image-content p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 24px;
+                gap: 40px;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* ======================== SECTION HEADER ======================== */
+        .section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 48px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .label {
+            color: var(--secondary-color);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .section-divider {
+            width: 48px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+            margin: 24px auto;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 24px;
+            }
+            .section-header h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* ======================== WHAT IS A CHIT ======================== */
+        .what-is-chit {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .what-is-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .math-callout {
+            background: white;
+            border-left: 4px solid var(--secondary-color);
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .math-callout h4 {
+            color: var(--secondary-color);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .math-callout p {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .math-box {
+            background: var(--bg-light);
+            padding: 16px;
+            border-radius: 6px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .what-is-chit {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== 4-STEP PROCESS ======================== */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .process-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .process-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .process-step {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 16px;
+        }
+
+        .process-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .process-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== HIGHLIGHT CALLOUT ======================== */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%);
+            border-left: 4px solid var(--secondary-color);
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .highlight-box p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* ======================== PLANS CARDS ======================== */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .plan-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .plan-card:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .plan-card.featured {
+            border-top: 4px solid var(--secondary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .plan-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .plan-name {
+            background: var(--bg-light);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        .plan-pricing {
+            text-align: right;
+        }
+
+        .plan-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .plan-frequency {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .plan-body {
+            padding: 24px;
+        }
+
+        .plan-monthly {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .plan-total {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .plan-includes {
+            background: var(--bg-light);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
+        .plan-includes-title {
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .plan-includes-text {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .plan-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .plan-btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .plan-btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .plan-btn-primary:hover {
+            background: #d97706;
+        }
+
+        .plan-btn-secondary {
+            background: transparent;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .plan-btn-secondary:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        @media (max-width: 1024px) {
+            .plans-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== COMPARISON TABLE ======================== */
+        .comparison-table {
+            overflow-x: auto;
+            margin-bottom: 60px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .checkmark {
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ======================== WHY CHOOSE US ======================== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin: 0 auto 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== CONTACT SECTION ======================== */
+        .contact-section {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #25d366;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .whatsapp-button:hover {
+            background: #20ba5a;
+        }
+
+        /* ======================== FORM ======================== */
+        .form-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .form-description {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--secondary-color);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .form-submit:hover {
+            background: #d97706;
+        }
+
+        .form-submit:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            border: 1px solid var(--success-color);
+            color: #065f46;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            border: 1px solid var(--error-color);
+            color: #7f1d1d;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== FOOTER ======================== */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 48px 20px;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 24px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* ======================== RESPONSIVE ======================== */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 24px;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">ChitVault</a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Chit</a>
+            <a href="#plans">Chit Plans</a>
+            <a href="#compare">Compare</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="cta-button">Join Now</a>
+    </div>
+</header>
+
+<!-- SECTION 1: HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="badge" style="display: inline-block; margin-bottom: 16px;">
+            <span>✨</span> Start Your Savings Journey Today
+        </div>
+        <h1>Planned Savings with Monthly Rewards & Festival Gifts</h1>
+        <p>A modern take on traditional chit funds. Save consistently, receive curated gifts monthly, and unlock exclusive benefits with our transparent and community-driven platform.</p>
+        
+        <div class="hero-badges">
+            <div class="badge">
+                <span>🛡️</span> Secure & Transparent
+            </div>
+            <div class="badge">
+                <span>💝</span> Curated Gifts
+            </div>
+            <div class="badge">
+                <span>👥</span> Community Trust
+            </div>
+        </div>
+
+        <div class="hero-buttons">
+            <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+            <button class="btn-secondary" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">View Plans</button>
+        </div>
+        
+        <p class="hero-subtitle">✅ Zero Hidden Charges | ✅ Flexible Plans | ✅ Monthly Rewards</p>
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-image-content">
+            <p>🎁 Household essentials, silk sarees, gold coins and festive items</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: WHAT IS A CHIT -->
+<section class="section" id="about">
+    <div class="section-header">
+        <div class="label">Learn Basics</div>
+        <h2>What is a Chit?</h2>
+        <div class="section-divider"></div>
+    </div>
+
+    <div class="what-is-chit">
+        <div class="what-is-text">
+            <p>A chit is a simple way of planning your monthly savings for a fixed period. You choose a plan based on your monthly budget. You then make the monthly payment for 12 months according to the selected plan.</p>
+            <p>At the end of the 12-month period, you receive the items and benefits included in your chosen plan.</p>
+        </div>
+
+        <div class="math-callout">
+            <h4>Example Illustration</h4>
+            <p>If you choose a plan with a monthly payment of ₹800, you pay ₹800 every month for 12 months.</p>
+            <div class="math-box">
+                <div>12 months × ₹800</div>
+                <div>= ₹9,600</div>
+            </div>
+            <p>At the end of the plan, you receive the products mentioned under that ₹9,600 plan.</p>
+        </div>
+    </div>
+
+    <div class="process-grid">
+        <div class="process-card">
+            <div class="process-step">1</div>
+            <h3>Choose a Plan</h3>
+            <p>Select a chit plan that matches your monthly budget and desired gifts.</p>
+        </div>
+        <div class="process-card">
+            <div class="process-step">2</div>
+            <h3>Make Monthly Payments</h3>
+            <p>Pay the fixed amount each month for 12 consecutive months without fail.</p>
+        </div>
+        <div class="process-card">
+            <div class="process-step">3</div>
+            <h3>Receive Updates</h3>
+            <p>Track your progress and get monthly updates on upcoming rewards and gifts.</p>
+        </div>
+        <div class="process-card">
+            <div class="process-step">4</div>
+            <h3>Claim Your Gifts</h3>
+            <p>After 12 months, collect all the items and benefits from your chosen plan.</p>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <div>ℹ️</div>
+        <p><strong>Pro Tip:</strong> Our chit plans are designed to encourage disciplined savings while providing tangible rewards. Join a trusted community and achieve your savings goals with confidence.</p>
+    </div>
+</section>
+
+<!-- SECTION 3: CHIT PLANS OVERVIEW -->
+<section class="section" id="plans">
+    <div class="section-header">
+        <div class="label">Our Offerings</div>
+        <h2>Choose Your Perfect Chit Plan</h2>
+        <p>Four carefully curated plans with varying monthly commitments and rewards. Select the one that matches your budget and lifestyle.</p>
+        <div class="section-divider"></div>
+    </div>
+
+    <div class="plans-grid">
+        <!-- PLAN 1 -->
+        <div class="plan-card">
+            <div class="plan-header">
+                <div class="plan-name">PLAN 1</div>
+                <div class="plan-pricing">
+                    <div class="plan-price">₹800</div>
+                    <div class="plan-frequency">/month</div>
+                </div>
+            </div>
+            <div class="plan-body">
+                <div class="plan-monthly">Total Payout: ₹9,600</div>
+                <div class="plan-includes">
+                    <div class="plan-includes-title">INCLUDES</div>
+                    <div class="plan-includes-text">Groceries (25kg rice, dals, oils), 3L Cooker, Cotton & Semi Silk Saree, Diwali crackers & essential household supplies.</div>
+                </div>
+                <div class="plan-buttons">
+                    <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 1 - ₹800/month')">Enroll Now</button>
+                    <button class="plan-btn plan-btn-secondary" onclick="document.getElementById('plan1-details').scrollIntoView({behavior:'smooth'})">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAN 2 -->
+        <div class="plan-card">
+            <div class="plan-header">
+                <div class="plan-name">PLAN 2</div>
+                <div class="plan-pricing">
+                    <div class="plan-price">₹1,800</div>
+                    <div class="plan-frequency">/month</div>
+                </div>
+            </div>
+            <div class="plan-body">
+                <div class="plan-monthly">Total Payout: ₹21,600</div>
+                <div class="plan-includes">
+                    <div class="plan-includes-title">INCLUDES</div>
+                    <div class="plan-includes-text">1g Gold 916, Ponni Rice, 3L Oil, 3L Cooker, Semi Silk Saree, Sweets & Dals.</div>
+                </div>
+                <div class="plan-buttons">
+                    <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 2 - ₹1,800/month')">Enroll Now</button>
+                    <button class="plan-btn plan-btn-secondary" onclick="document.getElementById('plan2-details').scrollIntoView({behavior:'smooth'})">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAN 3 -->
+        <div class="plan-card">
+            <div class="plan-header">
+                <div class="plan-name">PLAN 3</div>
+                <div class="plan-pricing">
+                    <div class="plan-price">₹2,800</div>
+                    <div class="plan-frequency">/month</div>
+                </div>
+            </div>
+            <div class="plan-body">
+                <div class="plan-monthly">Total Payout: ₹33,600</div>
+                <div class="plan-includes">
+                    <div class="plan-includes-title">INCLUDES</div>
+                    <div class="plan-includes-text">2g Gold 916 HUID, 2g Silver Coin, Hot Box Set (3 pcs), Semi Silk Saree, 1L Flask & groceries.</div>
+                </div>
+                <div class="plan-buttons">
+                    <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 3 - ₹2,800/month')">Enroll Now</button>
+                    <button class="plan-btn plan-btn-secondary" onclick="document.getElementById('plan3-details').scrollIntoView({behavior:'smooth'})">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAN 4 (FEATURED) -->
+        <div class="plan-card featured">
+            <div class="plan-header">
+                <div class="plan-name" style="background: var(--secondary-color); color: white;">⭐ PLAN 4</div>
+                <div class="plan-pricing">
+                    <div class="plan-price">₹5,000</div>
+                    <div class="plan-frequency">/month</div>
+                </div>
+            </div>
+            <div class="plan-body">
+                <div class="plan-monthly">Total Payout: ₹60,000</div>
+                <div class="plan-includes">
+                    <div class="plan-includes-title">INCLUDES</div>
+                    <div class="plan-includes-text">4g Gold 916, 10g Silver, Special Gift, 3 Pcs Hot Box, 1L Flask & premium provisions.</div>
+                </div>
+                <div class="plan-buttons">
+                    <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 4 - ₹5,000/month (Premium)')">Enroll Now</button>
+                    <button class="plan-btn plan-btn-secondary" onclick="document.getElementById('plan4-details').scrollIntoView({behavior:'smooth'})">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: DETAILED BREAKDOWN -->
+<section class="section" id="plan1-details">
+    <div class="section-header">
+        <div class="label">In-Depth Guide</div>
+        <h2>Comprehensive Plan Details</h2>
+        <p>Detailed breakdown of every item included in each plan so you know exactly what you'll receive.</p>
+        <div class="section-divider"></div>
+    </div>
+
+    <div style="margin-bottom: 60px;">
+        <div style="background: var(--bg-light); padding: 24px; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="color: var(--text-light); font-size: 12px; margin-bottom: 8px;">PLAN 1</div>
+                <h3 style="font-size: 24px; font-weight: 700; color: var(--primary-color); margin-bottom: 8px;">₹800/Month Plan</h3>
+                <div style="font-size: 14px; color: var(--text-light);">Total Investment: ₹9,600</div>
+            </div>
+            <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 1 - ₹800/month')" style="width: auto;">Enroll in Plan 1</button>
+        </div>
+        <p style="font-size: 16px; color: var(--text-light); margin-bottom: 20px;">A practical plan packed with groceries, kitchen essentials, household products, clothing and festive items:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Velli Kunguma Chimizh</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Manjal</div>
+                <div style="color: var(--text-light);">100g</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Kumkumam</div>
+                <div style="color: var(--text-light);">100g</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Sesame Oil</div>
+                <div style="color: var(--text-light);">1L</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Arisi (Rice)</div>
+                <div style="color: var(--text-light);">25kg</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Ennai (Oil)</div>
+                <div style="color: var(--text-light);">5L</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Cooker</div>
+                <div style="color: var(--text-light);">3L, 1</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Cotton Saree</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Semi Silk Saree</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Patasu Full Box</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Toor Dal</div>
+                <div style="color: var(--text-light);">2kg</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Sweet</div>
+                <div style="color: var(--text-light);">1kg</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 60px;" id="plan2-details">
+        <div style="background: var(--bg-light); padding: 24px; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="color: var(--text-light); font-size: 12px; margin-bottom: 8px;">PLAN 2</div>
+                <h3 style="font-size: 24px; font-weight: 700; color: var(--primary-color); margin-bottom: 8px;">₹1,800/Month Plan</h3>
+                <div style="font-size: 14px; color: var(--text-light);">Total Investment: ₹21,600</div>
+            </div>
+            <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 2 - ₹1,800/month')" style="width: auto;">Enroll in Plan 2</button>
+        </div>
+        <p style="font-size: 16px; color: var(--text-light); margin-bottom: 20px;">A higher-value plan that combines Gold 916, groceries, kitchen essentials, clothing and festive benefits:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Gold 916</div>
+                <div style="color: var(--text-light);">1 gram</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Ponni Arisi</div>
+                <div style="color: var(--text-light);">10kg</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Goundamani Ennai</div>
+                <div style="color: var(--text-light);">3L</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Thuvaram Paruppu</div>
+                <div style="color: var(--text-light);">1kg</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Cooker</div>
+                <div style="color: var(--text-light);">3L</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Semi Silk Saree</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 60px;" id="plan3-details">
+        <div style="background: var(--bg-light); padding: 24px; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="color: var(--text-light); font-size: 12px; margin-bottom: 8px;">PLAN 3</div>
+                <h3 style="font-size: 24px; font-weight: 700; color: var(--primary-color); margin-bottom: 8px;">₹2,800/Month Plan</h3>
+                <div style="font-size: 14px; color: var(--text-light);">Total Investment: ₹33,600</div>
+            </div>
+            <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 3 - ₹2,800/month')" style="width: auto;">Enroll in Plan 3</button>
+        </div>
+        <p style="font-size: 16px; color: var(--text-light); margin-bottom: 20px;">A premium 12-month plan featuring 2 grams of 916 HUID Gold, silver and useful household essentials:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Gold 916 HUID</div>
+                <div style="color: var(--text-light);">2 grams</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Silver Coin</div>
+                <div style="color: var(--text-light);">2 grams</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Oil</div>
+                <div style="color: var(--text-light);">3L</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Hot Box — 3 Pcs Set</div>
+                <div style="color: var(--text-light);">1 Set</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Semi Silk Saree</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Flask</div>
+                <div style="color: var(--text-light);">1L</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 60px;" id="plan4-details">
+        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%); padding: 24px; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="color: var(--text-light); font-size: 12px; margin-bottom: 8px;">PLAN 4 — PREMIUM</div>
+                <h3 style="font-size: 24px; font-weight: 700; color: var(--primary-color); margin-bottom: 8px;">₹5,000/Month Plan</h3>
+                <div style="font-size: 14px; color: var(--text-light);">Total Investment: ₹60,000</div>
+            </div>
+            <button class="plan-btn plan-btn-primary" onclick="enrollPlan('Plan 4 - ₹5,000/month (Premium)')" style="width: auto;">Enroll in Plan 4</button>
+        </div>
+        <p style="font-size: 16px; color: var(--text-light); margin-bottom: 20px;">Our premium plan combines 916 Gold, Silver, groceries, kitchen essentials and a special gift:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Thangam 916</div>
+                <div style="color: var(--text-light);">4 grams</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Velli (Silver)</div>
+                <div style="color: var(--text-light);">10 grams</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Special Gift</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Samayal Ennai</div>
+                <div style="color: var(--text-light);">3L</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Hot Box — 3 Pcs</div>
+                <div style="color: var(--text-light);">1 Set</div>
+            </div>
+            <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Semi Silk Saree</div>
+                <div style="color: var(--text-light);">1</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: COMPARISON TABLE -->
+<section class="section" id="compare">
+    <div class="section-header">
+        <div class="label">Side by Side</div>
+        <h2>Compare Our 4 Plans</h2>
+        <p>Find the plan that best fits your savings goals and lifestyle needs.</p>
+        <div class="section-divider"></div>
+    </div>
+
+    <div class="comparison-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Plan 1 (₹800)</th>
+                    <th>Plan 2 (₹1,800)</th>
+                    <th>Plan 3 (₹2,800)</th>
+                    <th>Plan 4 (₹5,000)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Monthly Payment</strong></td>
+                    <td>₹800</td>
+                    <td>₹1,800</td>
+                    <td>₹2,800</td>
+                    <td>₹5,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Duration</strong></td>
+                    <td>12 months</td>
+                    <td>12 months</td>
+                    <td>12 months</td>
+                    <td>12 months</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Payout Value</strong></td>
+                    <td>₹9,600</td>
+                    <td>₹21,600</td>
+                    <td>₹33,600</td>
+                    <td>₹60,000</td>
+                </tr>
+                <tr>
+                    <td><strong>Gold Included</strong></td>
+                    <td>-</td>
+                    <td>1g</td>
+                    <td>2g</td>
+                    <td>4g</td>
+                </tr>
+                <tr>
+                    <td><strong>Silver Included</strong></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>2g</td>
+                    <td>10g</td>
+                </tr>
+                <tr>
+                    <td><strong>Groceries & Spices</strong></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Kitchen Essentials</strong></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Saree</strong></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="background: var(--bg-light); padding: 24px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--primary-color);">Still Deciding?</h3>
+            <p style="color: var(--text-light); margin: 0;">Our advisors can help you choose the perfect plan based on your lifestyle and savings goals.</p>
+        </div>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="white-space: nowrap;">Contact Us</button>
+    </div>
+</section>
+
+<!-- SECTION 6: WHY CHOOSE US -->
+<section class="section">
+    <div class="section-header">
+        <div class="label">Our Promise</div>
+        <h2>Why Choose Our Chit Plans?</h2>
+        <div class="section-divider"></div>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Secure & Transparent</h3>
+            <p>Every transaction is recorded, verified, and tracked with complete transparency for your peace of mind.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💝</div>
+            <h3>Curated Gifts</h3>
+            <p>Thoughtfully selected items that matter—from daily essentials to premium gold and silver pieces.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>Community Trust</h3>
+            <p>Join a thriving community built on generational trust, discipline, and shared financial goals.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Easy to Manage</h3>
+            <p>Simple payment options, automatic reminders, and quick access to your account information anytime.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 7: CONTACT & FORM -->
+<section class="section" id="contact">
+    <div class="section-header">
+        <div class="label">Get In Touch</div>
+        <h2>Ready to Join a Chit Plan?</h2>
+        <p>Connect with us today and take the first step towards disciplined savings and exclusive rewards.</p>
+        <div class="section-divider"></div>
+    </div>
+
+    <div class="contact-section">
+        <div class="contact-grid">
+            <!-- LEFT: Contact Info -->
+            <div class="contact-info">
+                <h3>Direct Contact Details</h3>
+                
+                <div class="info-item">
+                    <div class="info-label">📍 Location</div>
+                    <div class="info-value">Colachel, Tamil Nadu</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">📞 Phone</div>
+                    <div class="info-value">+91 XXXXX XXXXX</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">💬 WhatsApp</div>
+                    <div class="info-value">+91 XXXXX XXXXX</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">✉️ Email</div>
+                    <div class="info-value">contact@chitvault.com</div>
+                </div>
+
+                <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-button">
+                    💬 Chat on WhatsApp
+                </a>
+
+                <div style="background: var(--bg-light); padding: 12px; border-radius: 6px; margin-top: 16px; text-align: center; font-size: 12px; color: var(--text-light);">
+                    Available Monday - Saturday, 9 AM - 6 PM
+                </div>
+            </div>
+
+            <!-- RIGHT: Form -->
+            <div class="form-section">
+                <h3>Send an Enquiry</h3>
+                <p class="form-description">Fill in the fields below and our representative will reach out to guide you through the enrollment process.</p>
+
+                <div class="success-message" id="successMsg">
+                    ✅ Thank you! Your enquiry has been submitted. We'll contact you soon!
+                </div>
+                <div class="error-message" id="errorMsg">
+                    ❌ Error submitting form. Please try again.
+                </div>
+
+                <form onsubmit="submitForm(event)" id="enquiryForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <button type="submit" class="form-submit" id="submitBtn">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>ChitVault</h4>
+            <p>Disciplined community savings, transparent auctions, and curated gold and monthly chit schemes built on generational trust.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Chit</a></li>
+                <li><a href="#plans">Chit Plans</a></li>
+                <li><a href="#compare">Compare Plans</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact Details</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 14px;">
+                <div>
+                    <div style="color: #d1d5db; font-size: 12px; margin-bottom: 4px;">PHONE</div>
+                    <div>+91 XXXXX XXXXX</div>
+                </div>
+                <div>
+                    <div style="color: #d1d5db; font-size: 12px; margin-bottom: 4px;">EMAIL</div>
+                    <div>contact@chitvault.com</div>
+                </div>
+                <div style="grid-column: 1 / -1;">
+                    <div style="color: #d1d5db; font-size: 12px; margin-bottom: 4px;">LOCATION</div>
+                    <div>Colachel, Tamil Nadu</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-divider">
+        <p>&copy; 2024 ChitVault. All Rights Reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a> | <a href="#" style="color: white;">Made with ❤️</a></p>
+    </div>
+</footer>
+
+<script>
+// AppScript URL
+const APPSCRIPT_URL = "https://script.google.com/macros/s/AKfycbwrKXPDvq1ORt7Ko2-fDWVjquEldlTTSdN6LrpucDVlwUezZPTE47d2cVaWwfWZnzYs/exec";
+
+function enrollPlan(planName) {
+    const name = prompt("Please enter your name:");
+    if (!name) return;
+
+    const email = prompt("Please enter your email:");
+    if (!email) return;
+
+    const phone = prompt("Please enter your phone number:");
+    if (!phone) return;
+
+    // Submit the form
+    submitFormData(name, email, phone);
+}
+
+function submitForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    submitFormData(name, email, phone);
+}
+
+function submitFormData(name, email, phone) {
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    // Clear messages
+    successMsg.classList.remove('show');
+    errorMsg.classList.remove('show');
+
+    // Disable submit button
+    if (submitBtn) submitBtn.disabled = true;
+
+    // Build the URL with query parameters
+    const url = APPSCRIPT_URL + "?" + new URLSearchParams({
+        name: name,
+        email: email,
+        phone: phone
+    });
+
+    // CRITICAL: Use GET with mode: "no-cors"
+    fetch(url, {
+        method: "GET",
+        mode: "no-cors"
+    })
+    .then(() => {
+        // Success — do NOT check response.ok or response.status
+        showSuccess();
+    })
+    .catch(() => {
+        // Error
+        showError();
+    });
+
+    function showSuccess() {
+        successMsg.classList.add('show');
+        if (document.getElementById('enquiryForm')) {
+            document.getElementById('enquiryForm').reset();
+        }
+        if (submitBtn) submitBtn.disabled = false;
+        // Scroll to success message
+        successMsg.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showError() {
+        errorMsg.classList.add('show');
+        if (submitBtn) submitBtn.disabled = false;
+        // Scroll to error message
+        errorMsg.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+
+</body>
+</html>
